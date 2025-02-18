@@ -24,38 +24,62 @@
 
 
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-union Data {
-    int i;         // 4 bytes
-    float f;       // 4 bytes
-    char str;  // 1 byte
-// Allocates memory equal to the largest member which is 4 bytes here (all members share the same memory).
-};
+// union Data {
+//     int i;         // 4 bytes
+//     float f;       // 4 bytes
+//     char str;  // 1 byte
+// // Allocates memory equal to the largest member which is 4 bytes here (all members share the same memory).
+// };
 
-int main() {
-    union Data data;
+// int main() {
+//     union Data data;
     
-    // Only one member can be accessed at a time
-    data.i = 10;
-    data.str = 'M';    
-    cout << "String: " << data.str << endl; // M
-    cout << "Integer: " << data.i << endl;  // garbage
-    
-
-    // one member can be accessed at a time so there is no problem
-    data.f = 5.5;  
-    cout << "Float: " << data.f << endl; // 5.5  // Overwrites `i`
+//     // Only one member can be accessed at a time
+//     data.i = 10;
+//     data.str = 'M';    
+//     cout << "String: " << data.str << endl; // M
+//     cout << "Integer: " << data.i << endl;  // garbage
     
 
-    // there is no problem b/c one member can be accessed at a time
-    data.str = 'M';
-    cout << "String: " << data.str << endl; // M  // Overwrites `f`
+//     // one member can be accessed at a time so there is no problem
+//     data.f = 5.5;  
+//     cout << "Float: " << data.f << endl; // 5.5  // Overwrites `i`
+    
+
+//     // there is no problem b/c one member can be accessed at a time
+//     data.str = 'M';
+//     cout << "String: " << data.str << endl; // M  // Overwrites `f`
     
    
+//     return 0;
+// }
+
+
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// enum Color { RED, GREEN, BLUE }; // RED = 0, GREEN = 1, BLUE = 2
+
+// int main() {
+//     Color myColor = GREEN;  // Assigning enum value
+//     cout << "My Color: " << myColor << endl; // Output: 1
+//     return 0;
+// }
+
+
+
+#include <iostream>
+using namespace std;
+enum Status { SUCCESS = 200, ERROR = 404, NOT_FOUND = 500 };
+
+int main() {
+    Status code = ERROR;
+    cout << "Status Code: " << code << endl; // Output: 404
     return 0;
 }
-
-
-
